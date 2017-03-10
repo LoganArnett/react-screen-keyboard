@@ -20,8 +20,8 @@ export default class Keyboard extends PureComponent {
 			symbolsKeyValue: PropTypes.string,
 			layout: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string)),
 		})),
-		backSpace: PropTypes.element,
-		shift: PropTypes.element,
+		backSpace: PropTypes.func,
+		shift: PropTypes.func,
 		space: PropTypes.string
 	};
 
