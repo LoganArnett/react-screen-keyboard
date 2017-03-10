@@ -70,3 +70,7 @@
 	border-color: #63b324;
 	color: #ffffff;
 }
+
+.hide {
+	display: none;
+}
