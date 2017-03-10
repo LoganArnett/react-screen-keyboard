@@ -20,6 +20,9 @@ export default class Keyboard extends PureComponent {
 			symbolsKeyValue: PropTypes.string,
 			layout: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string)),
 		})),
+		backSpace: PropTypes.element,
+		shift: PropTypes.element,
+		space: PropTypes.string
 	};
 
 	static defaultProps = {
@@ -27,6 +30,9 @@ export default class Keyboard extends PureComponent {
 		rightButtons: [],
 		isFirstLetterUppercase: false,
 		layouts: [CyrillicLayout, LatinLayout],
+		backSpace: null,
+		shift: null,
+		space: ' '
 	};
 
 	state = {
@@ -118,7 +124,9 @@ export default class Keyboard extends PureComponent {
 	}
 
 	render() {
-		const {leftButtons, rightButtons, inputNode} = this.props;
+		const backSpace = this.props.backSpace ? this.props.backSpace : <BackspaceIcon />; 
+		const shift = this.props.shift ? this.props.shift : <ShiftIcon />; 
+		const {leftButtons, rightButtons, inputNode, space} = this.props;
 		const keys = this.getKeys();
 		const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
 		const symbolsKeyValue = this.getSymbolsKeyValue();
@@ -135,7 +143,7 @@ export default class Keyboard extends PureComponent {
 						/>
 					)}
 					<KeyboardButton
-						value={<BackspaceIcon />}
+						value={backSpace}
 						onClick={this.handleBackspaceClick}
 					/>
 				</div>
@@ -164,7 +172,7 @@ export default class Keyboard extends PureComponent {
 
 				<div className="keyboard-row">
 					<KeyboardButton
-						value={<ShiftIcon />}
+						value={shift}
 						onClick={this.handleShiftClick}
 					/>
 					{keys[2].map(button =>
@@ -195,7 +203,7 @@ export default class Keyboard extends PureComponent {
 						/>
 					: null}
 					<KeyboardButton
-						value={' '}
+						value={space}
 						classes="keyboard-space"
 						onClick={this.handleLetterButtonClick}
 					/>
