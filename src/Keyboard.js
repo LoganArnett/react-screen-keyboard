@@ -1,5 +1,4 @@
 import React, {PureComponent, PropTypes} from 'react';
-import './Keyboard.css';
 import KeyboardButton from './KeyboardButton';
 
 import LatinLayout from './layouts/LatinLayout';
