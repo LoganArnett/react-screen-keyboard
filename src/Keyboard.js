@@ -204,7 +204,7 @@ export default class Keyboard extends PureComponent {
 					: null}
 					<KeyboardButton
 						value={space}
-						classes={`keyboard-space ${space === 'hidden' ? 'hide' : ''}`}
+						classes="keyboard-space"
 						onClick={this.handleLetterButtonClick}
 					/>
 					{inputNode.dataset.type === 'email' ?
