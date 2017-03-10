@@ -196,7 +196,7 @@ export default class Keyboard extends PureComponent {
 							onClick={this.handleLanguageClick}
 						/>
 					: null}
-					{inputNode.dataset.type === 'email' ?
+					{inputNode.dataset.type === 'email' || inputNode.type === 'email' ?
 						<KeyboardButton
 							value={'@'}
 							onClick={this.handleLetterButtonClick}
@@ -207,7 +207,7 @@ export default class Keyboard extends PureComponent {
 						classes="keyboard-space"
 						onClick={this.handleLetterButtonClick}
 					/>
-					{inputNode.dataset.type === 'email' ?
+					{inputNode.dataset.type === 'email' || inputNode.type === 'email' ?
 						<KeyboardButton
 							value={'.'}
 							onClick={this.handleLetterButtonClick}
